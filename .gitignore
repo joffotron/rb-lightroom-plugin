@@ -1,3 +1,5 @@
+.idea
+.com.apple.*
 *.gem
 *.rbc
 .bundle
