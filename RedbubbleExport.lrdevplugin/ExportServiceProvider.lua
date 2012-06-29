@@ -3,9 +3,9 @@ require 'RedbubbleUploadTask'
 
 return {
     hideSections = { 'exportLocation' },
-    allowFileFormats = nil,
-
-    allowColorSpaces = nil,
+    allowFileFormats = { 'JPEG' },
+    hidePrintResolution = true,
+    allowColorSpaces = {'sRGB'},
 
     startDialog = ExportDialogs.startDialog,
     processRenderedPhotos = RedbubbleUploadTask.upload,
