@@ -15,8 +15,8 @@ function RedbubbleUploadTask.upload(functionContext, exportContext)
                 local description = "Description"
                 local tags = "test,lightroom,photo"
                 local media = "photography,design"
-                local nsfw = false
-                local private = false
+                local nsfw = 'false'
+                local private = 'false'
 
                 RedbubbleAPI.uploadPhoto({
                     title = title,
