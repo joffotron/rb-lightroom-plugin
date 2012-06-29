@@ -2,7 +2,7 @@ require 'ExportDialogs'
 require 'RedbubbleUploadTask'
 
 return {
-    hideSections = { 'exportLocation' },
+    hideSections = { 'exportLocation', 'watermarking' },
     allowFileFormats = { 'JPEG' },
     hidePrintResolution = true,
     allowColorSpaces = {'sRGB'},
