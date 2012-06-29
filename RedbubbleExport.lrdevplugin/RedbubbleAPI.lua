@@ -4,8 +4,7 @@ local LrPathUtils = import'LrPathUtils'
 
 local logger = import'LrLogger'('RedbubbleAPI')
 
---local API_URL = 'http://api.redbubble.192.168.1.193.xip.io'
-local API_URL = 'http://posttestserver.com/post.php?dump&dir=redbubble'
+local API_URL = 'http://redbubble.192.168.1.234.xip.io/api/works'
 
 RedbubbleAPI = {}
 
@@ -29,7 +28,7 @@ function RedbubbleAPI.uploadWork(metadata, photoFilePath)
 
     if not result then
         if headers and headers.error then
-            LrErrors.throwUserError(headers.error.nativeCode)
+            LrErrors.throwUserError( headers.error.nativeCode)
         end
     end
 
@@ -39,7 +38,6 @@ function RedbubbleAPI.uploadWork(metadata, photoFilePath)
     end
     logger:info('Got result:', result)
 
-    --    return response
-    return 'http://redbubble.192.168.1.193.xip.io'
+    return result
 end
 

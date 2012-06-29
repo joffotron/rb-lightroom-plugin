@@ -3,7 +3,7 @@ return {
     LrSdkMinimumVersion = 3.0, -- minimum SDK version required by this plug-in
 
     LrToolkitIdentifier = 'com.redbubble.export',
-    LrPluginName = LOC"$$$/HelloWorld/PluginName=Redbubble Export",
+    LrPluginName = "Redbubble Export",
 
     -- Add the menu item to the File menu.
 

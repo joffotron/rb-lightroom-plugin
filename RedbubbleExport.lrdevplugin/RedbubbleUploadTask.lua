@@ -35,11 +35,11 @@ function RedbubbleUploadTask.processRenderedPhotos(functionContext, exportContex
                     private = private
                 }, pathOrMessage)
 
-                LrHttp.openUrlInBrowser(workUrl)
-
                 LrFileUtils.delete( pathOrMessage )
 
                 progressScope:done()
+
+                LrHttp.openUrlInBrowser(workUrl)
             end
         end
     end
