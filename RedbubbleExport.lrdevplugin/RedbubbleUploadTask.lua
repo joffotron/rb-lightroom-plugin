@@ -1,10 +1,18 @@
+local LrHttp = import'LrHttp'
+local LrFileUtils = import'LrFileUtils'
+local LrFileUtils = import'LrFileUtils'
+
 require'RedbubbleAPI'
 
 RedbubbleUploadTask = {}
 
-function RedbubbleUploadTask.upload(functionContext, exportContext)
+function RedbubbleUploadTask.processRenderedPhotos(functionContext, exportContext)
 
-    for i, rendition in exportContext:renditions{ stopIfCanceled = true } do
+    local progressScope = exportContext:configureProgress{
+        title = "Uploading work to Redbubbble"
+    }
+
+    for index, rendition in exportContext:renditions{ stopIfCanceled = true } do
         local photo = rendition.photo
 
         if not rendition.wasSkipped then
@@ -13,12 +21,12 @@ function RedbubbleUploadTask.upload(functionContext, exportContext)
             if success then
                 local title = "Test work title"
                 local description = "Description"
-                local tags = "test,lightroom,photo"
-                local media = "photography,design"
+                local tags = "test"
+                local media = "photography"
                 local nsfw = 'false'
                 local private = 'false'
 
-                RedbubbleAPI.uploadPhoto({
+                workUrl = RedbubbleAPI.uploadWork({
                     title = title,
                     description = description,
                     tags = tags,
@@ -26,6 +34,12 @@ function RedbubbleUploadTask.upload(functionContext, exportContext)
                     nsfw = nsfw,
                     private = private
                 }, pathOrMessage)
+
+                LrHttp.openUrlInBrowser(workUrl)
+
+                LrFileUtils.delete( pathOrMessage )
+
+                progressScope:done()
             end
         end
     end

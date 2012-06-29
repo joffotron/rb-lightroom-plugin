@@ -9,7 +9,7 @@ return {
     canExportVideo = false,
 
     startDialog = ExportDialogs.startDialog,
-    processRenderedPhotos = RedbubbleUploadTask.upload,
+    processRenderedPhotos = RedbubbleUploadTask.processRenderedPhotos,
     sectionsForTopOfDialog = ExportDialogs.workDetailsDialog,
 
 }
